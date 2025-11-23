@@ -126,31 +126,31 @@ celery -A sleep_tracker_project beat -l info
 - `POST /api/profiles/{id}/connect_google_calendar/` - Connect Google Calendar
 
 ### Sleep Sessions
-- `GET /api/sleep-sessions/' - List all sleep sessions
-- `POST /api/sleep-sessions/' - Create new sleep session
-`GET /api/sleep-sessions/{id}/' - Get specific session
-PATCH /api/sleep-sessions/{id}/' - Update session
-DELETE /api/sleep-sessions/{id}/' - Delete session
-GET /api/sleep-sessions/recent/' - Get last 7 days
-`GET /api/sleep-sessions/today/' - Get today's sessions
+- `GET /api/sleep-sessions/` - List all sleep sessions
+- `POST /api/sleep-sessions/` - Create new sleep session
+- `GET /api/sleep-sessions/{id}/` - Get specific session
+- `PATCH /api/sleep-sessions/{id}/` - Update session
+- `DELETE /api/sleep-sessions/{id}/` - Delete session
+- `GET /api/sleep-sessions/recent/` - Get last 7 days
+- `GET /api/sleep-sessions/today/` - Get today's sessions
 - `POST /api/sleep-sessions/{id}/sync_to_calendar/` - Manually sync to calendar
 
 ### Sleep Goals
-- `GET /api/goals/ - List all goals
-- POST /api/goals/` - Create new goal
-- `GET /api/goals/active/' - Get active goals
+- `GET /api/goals/` - List all goals
+- `POST /api/goals/` - Create new goal
+- `GET /api/goals/active/` - Get active goals
 - `PATCH /api/goals/{id}/` - Update goal
 - `DELETE /api/goals/{id}/` - Delete goal
 
 ### Sleep Reminders
-- GET /api/reminders/` - List all reminders
-- 'POST /api/reminders/` - Create new reminder
-- `GET /api/reminders/active/' - Get active reminders
+- `GET /api/reminders/` - List all reminders
+- `POST /api/reminders/` - Create new reminder
+- `GET /api/reminders/active/` - Get active reminders
 - `PATCH /api/reminders/{id}/` - Update reminder
-- 'DELETE /api/reminders/{id}/` - Delete reminder
+- `DELETE /api/reminders/{id}/` - Delete reminder
 
 ### Statistics
-- `GET /api/statistics/' - List statistics
+- `GET /api/statistics/` - List statistics
 - `GET /api/statistics/summary/` - Get 30-day summary
 
 ## Email Configuration (Gmail)
@@ -163,13 +163,13 @@ Passwords
 ## Celery Tasks
 
 The following background tasks are available:
-- `send_bedtime_reminders' - Send bedtime reminders
-- `send_wake_reminders' - Send wake-up reminders
-- `send_log_reminders' - Remind users to log sleep
-- `sync_sleep_to_calendar' - Sync sleep session to Google Calendar
-- `calculate_daily_statistics' - Calculate daily stats
-- `calculate_weekly_statistics' - Calculate weekly stats
--`send_weekly_reports' - Send weekly email reports
+- `send_bedtime_reminders` - Send bedtime reminders
+- `send_wake_reminders` - Send wake-up reminders
+- `send_log_reminders` - Remind users to log sleep
+- `sync_sleep_to_calendar` - Sync sleep session to Google Calendar
+- `calculate_daily_statistics` - Calculate daily stats
+- `calculate_weekly_statistics` - Calculate weekly stats
+- `send_weekly_reports` - Send weekly email reports
 
 ## Models Overview
 
