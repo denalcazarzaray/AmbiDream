@@ -4,17 +4,17 @@ A comprehensive Django-based sleep tracking application with Google Calendar
 integration and email notifications.
 
 ## Features
-- ** Sleep Session Tracking **: Log sleep times, wake times, and quality ratings
-- ** Google Calendar Integration **: Automatically sync sleep sessions to Google Calendar
-- ** Email Notifications **: Bedtime reminders, wake-up alerts, and weekly reports
-- ** Sleep Goals **: Set and track sleep goals with different schedules
-- ** Statistics & Analytics **: View daily, weekly, and monthly sleep statistics
-- ** REST API **: Full-featured API for mobile/web client integration
+- **Sleep Session Tracking**: Log sleep times, wake times, and quality ratings
+- **Google Calendar Integration**: Automatically sync sleep sessions to Google Calendar
+- **Email Notifications**: Bedtime reminders, wake-up alerts, and weekly reports
+- **Sleep Goals**: Set and track sleep goals with different schedules
+- **Statistics & Analytics**: View daily, weekly, and monthly sleep statistics
+- **REST API**: Full-featured API for mobile/web client integration
 ## Tech Stack
-- ** Backend **: Django 5.0 + Django REST Framework
-- ** Database **: SQLite (default) / PostgreSQL / MySQL
-- ** Task Queue **: Celery + Redis
-- ** Integrations **: Google Calendar API, Email (SMTP)
+- **Backend**: Django 5.0 + Django REST Framework
+- **Database**: SQLite (default) / PostgreSQL / MySQL
+- **Task Queue**: Celery + Redis
+- **Integrations**: Google Calendar API, Email (SMTP)
 ## Project Structure
 
 ```
