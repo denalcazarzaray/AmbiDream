@@ -25,7 +25,7 @@ class GoogleCalendarService:
          user_profile: UserProfile instance with google credentials
         """
         self.user_profile = user_profile
-        self_service = None
+        self.service = None
 
     def get_credentials(self):
         """
@@ -51,7 +51,7 @@ class GoogleCalendarService:
             try:
                 creds.refresh(Request())
                 #Save refreshed credentials 
-                if self.user _profile:
+                if self.user_profile:
                     self.user_profile.google_refresh_token = pickle.dumps(creds).decode('latin1')
                     self.user_profile.save()
                 return creds
@@ -62,12 +62,12 @@ class GoogleCalendarService:
         return None
 
     def authenticate(self):
-        """"
+        """
         Authenticate with Google Calendar API
         Returns:
-        Credentials object
+            Credentials object
         """
-        creds_file = settings.GOOGLE CALENDAR_CREDENTIALS_FILE
+        creds_file = settings.GOOGLE_CALENDAR_CREDENTIALS_FILE
 
         if not os.path.exists(creds_file):
             raise FileNotFoundError(
@@ -121,19 +121,19 @@ class GoogleCalendarService:
 
         try:
             event = {
-                'summary': f'Sleep ({sleep_session.duration_hours}h)', 
-                'description': f'Sleep Quality: {sleep_session.quality_rating_display() if sleep_session.quality_rating else "Not rated"}\n'
-                f'Notes: {sleep_session.notes}', 
+                'summary': f"Sleep ({sleep_session.duration_hours}h)",
+                'description': f"Sleep Quality: {sleep_session.get_quality_rating_display() if getattr(sleep_session, 'quality_rating', None) else 'Not rated'}\n"
+                               f"Notes: {sleep_session.notes}",
                 'start': {
-                'dateTime': sleep session.sleep_time.isoformat(),
-                'timeZone': self.user_profile.timezone if self.user_profile else 'UTC',
-                }
+                    'dateTime': sleep_session.sleep_time.isoformat(),
+                    'timeZone': self.user_profile.timezone if self.user_profile else 'UTC',
+                },
                 'end': {
-                'dateTime': sleep_session.wake_time.isoformat(),
-                'timeZone': self.user_profile.timezone if self.user_profile else 'UTC',
-                }
+                    'dateTime': sleep_session.wake_time.isoformat(),
+                    'timeZone': self.user_profile.timezone if self.user_profile else 'UTC',
+                },
                 'colorId': '9',
-                'transparency': 'transparent', #Don't show as busy 
+                'transparency': 'transparent',  # Don't show as busy
             }
 
             event_result = service.events().insert(calendarId='primary', body=event).execute()
@@ -155,33 +155,33 @@ class GoogleCalendarService:
         service = self.get_service()
         if not service:
             return None
-    
+
         try:
             event = {
-                'summary': f'Sleep ({sleep session.duration_hours}h)',
-                'description': f'Sleep Quality: {sleep_session.get_quality_rating_display() if sleep_session.quality_rating else "Not rated"}\n'
-                               f'Notes: {sleep_session.notes}', 
-            'start': {
-            'dateTime': sleep_session.sleep time.isoformat(),
-            'timeZone': self.user_profile.timezone if self.user_profile else 'UTC',
-            }
-            'end': {
-            'dateTime': sleep session.wake_time.isoformat(),
-            'timeZone': self.user_profile.timezone if self.user_profile else 'UTC',
-            }
-            'colorId': '9',
-            'transparency': 'transparent',
+                'summary': f"Sleep ({sleep_session.duration_hours}h)",
+                'description': f"Sleep Quality: {sleep_session.get_quality_rating_display() if getattr(sleep_session, 'quality_rating', None) else 'Not rated'}\n"
+                               f"Notes: {sleep_session.notes}",
+                'start': {
+                    'dateTime': sleep_session.sleep_time.isoformat(),
+                    'timeZone': self.user_profile.timezone if self.user_profile else 'UTC',
+                },
+                'end': {
+                    'dateTime': sleep_session.wake_time.isoformat(),
+                    'timeZone': self.user_profile.timezone if self.user_profile else 'UTC',
+                },
+                'colorId': '9',
+                'transparency': 'transparent',
             }
 
             event_result = service.events().update(
-                calendarId='primary'.
+                calendarId='primary',
                 eventId=event_id,
                 body=event
             ).execute()
             return event_result.get('id')
 
         except HttpError as error:
-            print("An error occurred updating event: {error}")
+            print(f"An error occurred updating event: {error}")
             return None
 
     def delete_sleep_event(self, event_id):
@@ -201,6 +201,7 @@ class GoogleCalendarService:
             return True
         except HttpError as error:
             print(f"An error occurred deleting event: {error}")
+            return False
 
     def list_upcoming_events(self, max_results=10):
         """
