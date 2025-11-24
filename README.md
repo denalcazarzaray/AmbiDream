@@ -50,7 +50,7 @@ sleep_tracker/
 Navigate to project
 
 ``` bash
-cd `url to file`
+cd (insert url to file here)
 python3 -m venv venv
 venvScripts\activate.bat         # CMD
 # OR
