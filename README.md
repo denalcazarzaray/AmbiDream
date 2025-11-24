@@ -45,12 +45,18 @@ sleep_tracker/
 
 ## Setup Instructions
 
-### 1. Create Virtual Environment
+### 1. Create Virtual Environment (For Windows)
+
+Navigate to project
 
 ``` bash
-cd /AmbiDream
+cd `url to file`
 python3 -m venv venv
-source venv/bin/activate    # On Windows: venv|Scripts|activate
+venvScripts\activate.bat         # CMD
+# OR
+venv\Scripts\Activate.ps1       # PowerShell
+# OR
+source venv/Scripts/activate    # Git Bash
 ```
 
 ### 2. Install Dependencies
