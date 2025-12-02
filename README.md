@@ -50,8 +50,16 @@ sleep_tracker/
 Navigate to project
 
 ``` bash
-cd (insert url to file here)
+cd AmbiDream
+```
+
+Activate virtual environment
+```
 python3 -m venv venv
+```
+
+Activate Script
+```
 venvScripts\activate.bat         # CMD
 # OR
 venv\Scripts\Activate.ps1       # PowerShell
