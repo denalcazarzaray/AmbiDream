@@ -22,7 +22,7 @@ sleep_tracker/
 ├─ manage.py
 ├─ requirements.txt
 ├─ .env.example
-├─ sleep_tracker_project/
+├─ AmbiDream/
 │   ├─ _init _. py
 │   ├─ settings.py
 │   ├─ urls.py
@@ -123,10 +123,10 @@ In a separate terminal:
 redis-server
 
 # Start Celery worker
-celery -A sleep_tracker_project worker -l info
+celery -A AmbiDream worker -l info
 
 # Start Celery beat (for scneduled tasks)
-celery -A sleep_tracker_project beat -l info
+celery -A AmbiDream beat -l info
 ```
 
 ## API Endpoints
