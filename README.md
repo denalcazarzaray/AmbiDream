@@ -55,7 +55,7 @@ cd AmbiDream
 
 Activate virtual environment
 ```
-python3 -m venv venv
+python -m venv .venv
 ```
 
 Activate Script
