@@ -45,7 +45,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sleep_tracker_project.urls'
+ROOT_URLCONF = 'AmbiDream.urls'
 
 TEMPLATES = [
     {
@@ -63,7 +63,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'sleep_tracker_project.wsgi.application'
+WSGI_APPLICATION = 'AmbiDream.wsgi.application'
 
 #Database 
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
