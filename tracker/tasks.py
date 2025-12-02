@@ -1,5 +1,5 @@
 """
-Celery tasks for Sleep Tracker
+Celery tasks for AmbiDream 
 """
 from celery import shared_task
 from django.contrib.auth.models import User

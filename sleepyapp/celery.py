@@ -1,14 +1,14 @@
 """
-Celery configuration for sleep_tracker_project.
+Celery configuration for ambidream.
 """
 
 import os
 from celery import Celery
 
 # Set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sleep_tracker_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ambidream.settings')
 
-app = Celery('sleep_tracker_project')
+app = Celery('AmbiDream')
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 

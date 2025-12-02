@@ -1,5 +1,5 @@
 """
-Views for Sleep Tracker
+Views for AmbiDream
 """
 from rest_framework import viewsets, status, permissions
 from rest_framework.decorators import action

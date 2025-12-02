@@ -1,5 +1,5 @@
 """
-WSGI config for sleep_tracker_project.
+WSGI config for AmbiDream.
 It exposes the WSGI callable as a module-level variable named "application".
 For more information on this file, see
 https://docs.djangoproject.com/en/5.8/howto/deployment/wsgi/
@@ -9,6 +9,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS MODULE', 'sleep_tracker_project.settings")
+os.environ.setdefault("DJANGO_SETTINGS MODULE', 'AmbiDream.settings")
 
 application = get_wsgi_application()

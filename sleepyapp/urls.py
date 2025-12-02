@@ -1,5 +1,5 @@
 """
-URL configuration for sleep tracker_project.
+URL configuration for AmbiDream.
 """
 
 from django.contrib import admin
